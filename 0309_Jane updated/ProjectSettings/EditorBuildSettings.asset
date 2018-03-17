@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Menu Scene/1scenes/Demo.unity
+    guid: f6605a65adee147e5868b31f8a9a53ef
+  - enabled: 1
+    path: Assets/Intro Scene/1scenes/CleanedUp_Bedroom.unity
+    guid: 2a491204ffb9c4ea48e4a017f7b1334a
+  - enabled: 1
+    path: Assets/Low-Poly Ice World/Scenes/PracticalDemo.unity
+    guid: 9489773df1a62b548b0add57c488a82a

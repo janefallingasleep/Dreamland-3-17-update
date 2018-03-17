@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Intro Scene/1scenes/CleanedUp_Bedroom.unity
+  isLoaded: 1
+  isActive: 1
