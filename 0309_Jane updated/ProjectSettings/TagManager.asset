@@ -8,6 +8,7 @@ TagManager:
   - snowball_pre
   - killer_rock
   - leepy
+  - river_brake
   layers:
   - Default
   - TransparentFX

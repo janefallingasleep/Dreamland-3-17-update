@@ -11,16 +11,16 @@ public class leepyPath : MonoBehaviour {
 	public GameObject[] wayPoints;
 	private int currentWayPoint = 0;
 	private float rotationspeed = 0.2f;
-	public float speed;
+	public static float speed = 3.0f;
 	private float WayPointAccracy = 1f;
-	public bool start;
+	public static bool start = true;
 
 	// Use this for initialization
 	void Start () {
 		state = "patrol";
-		anim = GetComponent<Animator>();
+		anim = gameObject.transform.GetChild (0).GetComponent<Animator>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (start) {
@@ -44,6 +44,11 @@ public class leepyPath : MonoBehaviour {
 					this.transform.position = Vector3.MoveTowards (transform.position, wayPoints [currentWayPoint].transform.position, speed * Time.deltaTime);
 				} 
 			}
+		} 
+		else {
+			anim.SetBool ("isWalking", false);
+			anim.SetBool ("isIdle", true);
+			
 		}
 	}
 }
