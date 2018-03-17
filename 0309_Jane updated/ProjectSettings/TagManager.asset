@@ -9,6 +9,8 @@ TagManager:
   - killer_rock
   - leepy
   - river_brake
+  - leepy_head
+  - shadow
   layers:
   - Default
   - TransparentFX

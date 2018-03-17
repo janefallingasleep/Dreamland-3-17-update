@@ -13,7 +13,7 @@ public class snowman_static_attack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("leepy").transform;
+		player = GameObject.FindGameObjectWithTag("leepy_head").transform;
 		timeBtwShots = startTimeBtwShot;
 	}
 	

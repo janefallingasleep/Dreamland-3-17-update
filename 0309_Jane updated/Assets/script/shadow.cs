@@ -27,6 +27,7 @@ public class shadow : MonoBehaviour {
 		Shadow = GetComponent<Rigidbody>();
 		shadow_jump = GetComponent<AudioSource>();
 	}
+
 	// Update is called once per frame
 	void Update () {
 		if(controller.isGrounded){

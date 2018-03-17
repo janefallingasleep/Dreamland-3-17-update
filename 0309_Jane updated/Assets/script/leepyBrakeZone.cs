@@ -24,4 +24,9 @@ public class leepyBrakeZone : MonoBehaviour {
 			leepyPath.start = newstate;
 		}
 	}
+
+	void Update(){
+		leepyPath.speed = originalspeed;
+		leepyPath.start = true;
+	}
 }

@@ -115,15 +115,12 @@
      <Compile Include="Assets\script\buttonPush.cs" />
      <Compile Include="Assets\script\camera_switch.cs" />
      <Compile Include="Assets\script\elevator.cs" />
-     <Compile Include="Assets\script\GlobalVariable.cs" />
      <Compile Include="Assets\script\iceAvoidColliders.cs" />
      <Compile Include="Assets\script\killerRockStable.cs" />
      <Compile Include="Assets\script\leepyBrakeZone.cs" />
-     <Compile Include="Assets\script\leepyMover.cs" />
      <Compile Include="Assets\script\leepyPath.cs" />
      <Compile Include="Assets\script\LeepyTrampoline.cs" />
      <Compile Include="Assets\script\leepyWalkingPath.cs" />
-     <Compile Include="Assets\script\push.cs" />
      <Compile Include="Assets\script\respawn.cs" />
      <Compile Include="Assets\script\shadow.cs" />
      <Compile Include="Assets\script\shadow_motion.cs" />
@@ -133,7 +130,8 @@
      <Compile Include="Assets\script\shadowTrampoline.cs" />
      <Compile Include="Assets\script\snowman_moving_attack.cs" />
      <Compile Include="Assets\script\snowman_script.cs" />
-     <Compile Include="Assets\script\snowman_shooting.cs" />
+     <Compile Include="Assets\script\snowman_shooting_leepy.cs" />
+     <Compile Include="Assets\script\snowman_shooting_shadow.cs" />
      <Compile Include="Assets\script\snowman_static_attack.cs" />
      <Compile Include="Assets\Scripts\FollowPath.cs" />
      <Compile Include="Assets\Scripts\MovementPath.cs" />

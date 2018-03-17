@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class snowman_moving_attack : MonoBehaviour {
-	public float speed;
+	public float snow_man_speed;
 	public float stopDistance;
 	public float retreatDistance;
 	public Transform player;
@@ -23,11 +23,11 @@ public class snowman_moving_attack : MonoBehaviour {
 		} 
 		else if (Vector3.Distance(transform.position, player.position) < stopDistance && Vector3.Distance(transform.position, player.position) > retreatDistance){
 			lookAtPlayer();
-			transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, player.position, snow_man_speed * Time.deltaTime);
 		}
 		else if (Vector3.Distance(transform.position, player.position) < retreatDistance){
 			lookAtPlayer();
-			transform.position = Vector3.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, player.position, -snow_man_speed * Time.deltaTime);
 		}
 
 		if (timeBtwShots <=0){
