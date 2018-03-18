@@ -6,28 +6,21 @@ public class respawn: MonoBehaviour
 
 {
 	Animator anim;
-	[SerializeField] public Transform player;
-	[SerializeField] public Transform camera;
-	[SerializeField] public Transform respawnPoint;
 	private int is_colliding = 0;
 	int time;
 	int lastDied;
+	public xiaodouDeath die_script;
 
-	IEnumerator OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.name == "shadow_rigged" && (time - lastDied > 50)) {
 			lastDied = time;
-
 			if (is_colliding == 1) {
-				yield break;
+				return;
 			}
 			is_colliding = 1;
-
 			Debug.Log ("hitting");
-			player.GetComponent<Animator> ().SetTrigger ("death");
-			yield return new WaitForSeconds (2);
-			player.transform.position = respawnPoint.transform.position;
-			camera.transform.position = new Vector3 (75f, 2.9f, 25f);
+			StartCoroutine(die_script.TakeDamageAndRespawn());
 		}
 	}
 
