@@ -12,11 +12,13 @@ public class shadow_motion : MonoBehaviour {
 	Animator animator;
 	public AudioClip jump1;
 	public AudioClip dance;
+	public AudioClip bounce;
 	public GameObject shadowEmp;
 	AudioSource shadow_jump;
 	bool jumped = true;
 	float jump;
 	float rot = 0;
+	int count =0;
 
 	public float spd;
 
@@ -30,13 +32,19 @@ public class shadow_motion : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		if (count >= 1 && count < 100) {
+			//print (count);
+			verticalVelocity
+			count += 1;
+		}
+
+
 		Physics.IgnoreCollision (GetComponent<Collider>(), shadowEmp.GetComponent<Collider>());
 		if(controller.isGrounded){
 			verticalVelocity = -gravity * Time.deltaTime;
 			if (Input.GetKeyDown(KeyCode.Space)){
 				verticalVelocity = jumpForce;
 			}
-
 		}
 		else{
 			verticalVelocity -= gravity * Time.deltaTime;
@@ -48,7 +56,7 @@ public class shadow_motion : MonoBehaviour {
 		animator.SetFloat("speed", speed, 0.15f, Time.deltaTime);
 
 		// Translation of the shadow using keyboard arrows
-		Vector3 movement = new Vector3 (-1*moveVertical, verticalVelocity*0.3f, moveHorizontal);
+		Vector3 movement = new Vector3 (-1*moveVertical, verticalVelocity*0.5f, moveHorizontal);
 		//Shadow.velocity = movement*1.0f;
 		controller.Move(movement * Time.deltaTime*spd);
 
@@ -77,6 +85,14 @@ public class shadow_motion : MonoBehaviour {
 		if (Input.GetKey(KeyCode.D)){
 			animator.SetTrigger("dance");
 			shadow_jump.PlayOneShot(dance,1F);
+		}
+	}
+
+	void OnCollisionEnter(Collision col){
+		if (col.collider.name == "trampoline") {
+			print ("touched trampoline");
+			count += 1;
+			shadow_jump.PlayOneShot (bounce, 1.0f);
 		}
 	}
 }

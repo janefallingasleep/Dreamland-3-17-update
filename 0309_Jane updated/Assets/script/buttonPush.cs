@@ -19,7 +19,7 @@ public class buttonPush : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (rotCount >= 1 && rotCount < 300) {
+		if (rotCount >= 1 && rotCount < 230) {
 			cave.transform.Rotate (0, Time.deltaTime * 25, 0);
 			rotCount = rotCount + 1;
 		} else {
@@ -31,7 +31,7 @@ public class buttonPush : MonoBehaviour {
 		if (col.collider.name == "shadow_rigged" ){//|| col.collider.name == "shadowEmpty") {
 			anim.SetBool("stop", true);
 			rotCount += 1;
-			audio.PlayOneShot (caveRot, 0.7f);
+			audio.PlayOneShot (caveRot, 1f);
 		}
 	}
 }

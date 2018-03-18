@@ -24,7 +24,7 @@ public class snowman_script : MonoBehaviour {
 		}
 		if (should_sink) {
 			Debug.Log ("Snowman sinking");
-			GetComponent<AudioSource>().PlayOneShot (sink, 0.7f);
+			GetComponent<AudioSource>().PlayOneShot (sink, 0.05f);
 			time += Time.deltaTime / 0.5f; //sink for 5 seconds
 			//gameObject.transform.localEulerAngles = Vector3.Lerp (startRot, targetRot, time);
 			gameObject.transform.position = Vector3.Lerp (startPos, targetPos, time);
