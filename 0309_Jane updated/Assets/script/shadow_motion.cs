@@ -12,8 +12,8 @@ public class shadow_motion : MonoBehaviour {
 	Animator animator;
 	public AudioClip jump1;
 	public AudioClip dance;
+	public GameObject shadowEmp;
 	AudioSource shadow_jump;
-	Rigidbody Shadow;
 	bool jumped = true;
 	float jump;
 	float rot = 0;
@@ -25,11 +25,12 @@ public class shadow_motion : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>(); 
-		Shadow = GetComponent<Rigidbody>();
 		shadow_jump = GetComponent<AudioSource>();
+		Physics.IgnoreCollision (GetComponent<Collider>(), shadowEmp.GetComponent<Collider>());
 	}
 	// Update is called once per frame
 	void Update () {
+		Physics.IgnoreCollision (GetComponent<Collider>(), shadowEmp.GetComponent<Collider>());
 		if(controller.isGrounded){
 			verticalVelocity = -gravity * Time.deltaTime;
 			if (Input.GetKeyDown(KeyCode.Space)){
