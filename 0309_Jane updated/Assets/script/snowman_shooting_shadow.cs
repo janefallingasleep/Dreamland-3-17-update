@@ -9,8 +9,8 @@ public class snowman_shooting_shadow : MonoBehaviour {
 	private Vector3 target;
 
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("shadow").transform;
-		target = new Vector3(player.position.x, player.position.y, player.position.z);
+		player = GameObject.FindGameObjectWithTag("Player").transform;
+		target = new Vector3(player.position.x, player.position.y + 5f, player.position.z);
 	}
 	
 	// Update is called once per frame
@@ -22,9 +22,9 @@ public class snowman_shooting_shadow : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){
-		if (other.gameObject.tag == "shadow") {
+		if (other.gameObject.tag == "Player") {
 			DestroyProjectile();
-			//// To do: when the ball hit leept, add health bar 
+			Debug.Log ("snowball hit shadow");
 		}
 	}
 

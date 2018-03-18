@@ -2,38 +2,39 @@
 using System.Collections;
 
 public class snowman_script : MonoBehaviour {
-	int sinkCount;
-	AudioSource audio;
 	public AudioClip sink;
+	Vector3 startPos = new Vector3 (28.51f, 1.66f, -15.34f);
+	Vector3 startRot = new Vector3(15.342f, 68.424f, 7.503f);
+	Vector3 targetPos = new Vector3(28.51f, -0.75f, -15.34f);
+	Vector3 targetRot = new Vector3(10.656f, 92.23601f, 11.559f);
+	float time = 0;
+	bool should_sink;
 
 	void Start(){
-		sinkCount = 0;
-		if (this.name == "snowman_moving") {
-			audio = GetComponent<AudioSource>();
-		}
+		GetComponent<AudioSource>().playOnAwake = false;
+		GetComponent<AudioSource> ().clip = sink;
+		should_sink = false;
 	}
 
-	void Update(){
-		if (sinkCount >= 1 && sinkCount < 60) {
-			//print (count);
-			transform.Translate (0, -Time.deltaTime, 0);
-			sinkCount += 1;
-		} else {
-			if (this.name == "snowman_moving") {
-				audio.Pause ();
-			}
+	void Update() {
+		if (gameObject.transform.position == targetPos) {
+			Debug.Log ("Snowman should stop sinking");
+			should_sink = false;
+			gameObject.GetComponent<Animator> ().enabled = false;
+		}
+		if (should_sink) {
+			Debug.Log ("Snowman sinking");
+			GetComponent<AudioSource>().PlayOneShot (sink, 0.7f);
+			time += Time.deltaTime / 0.5f; //sink for 5 seconds
+			//gameObject.transform.localEulerAngles = Vector3.Lerp (startRot, targetRot, time);
+			gameObject.transform.position = Vector3.Lerp (startPos, targetPos, time);
 		}
 	}
 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "killer_rock") {
-			//print ("here");
-			//Destroy(this.gameObject);
-			//Debug.Log ("Snowman killed");
-			sinkCount += 1;
-			if (this.name == "snowman_moving") {
-				audio.PlayOneShot (sink, 0.7f);
-			}
+			Debug.Log ("Snowman killed");
+			should_sink = true;
 		}
 	}
 }

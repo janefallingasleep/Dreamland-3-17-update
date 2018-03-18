@@ -2,13 +2,14 @@
 using UnityEngine;
 
 public class snowman_moving_attack : MonoBehaviour {
+
+	public GameObject projectile;
+	private float timeBtwShots;
+	public float startTimeBtwShot;
 	public float snow_man_speed;
 	public float stopDistance;
 	public float retreatDistance;
 	public Transform player;
-	private float timeBtwShots;
-	public float startTimeBtwShot;
-	public GameObject projectile;
 	public float rotaiondamping;
 
 	void Start(){
