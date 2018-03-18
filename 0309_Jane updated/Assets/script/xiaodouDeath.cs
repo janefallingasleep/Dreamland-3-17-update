@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class xiaodouDeath : MonoBehaviour {
-	public GameObject moving_camera;
+	public GameObject shadow_empty;
 	public Transform respawnPoint;
 
 	public IEnumerator TakeDamageAndRespawn () {
@@ -12,6 +12,6 @@ public class xiaodouDeath : MonoBehaviour {
 		gameObject.GetComponent<Animator> ().SetTrigger ("death");
 		yield return new WaitForSeconds (2.3f);
 		gameObject.transform.position = respawnPoint.transform.position;
-		moving_camera.transform.position = new Vector3 (75f, 2.9f, 25f);
+		shadow_empty.transform.position = respawnPoint.transform.position;
 	}
 }

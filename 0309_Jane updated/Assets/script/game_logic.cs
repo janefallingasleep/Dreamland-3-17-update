@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class game_logic : MonoBehaviour {
-	public GameObject player,life1, life2, life3, gameOver;
+	public GameObject player,life1, life2, life3, gameOver, restartButton;
 	public static int life_count;
+	//public Button restartButton;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,7 @@ public class game_logic : MonoBehaviour {
 		life3.gameObject.SetActive (true);
 		player.gameObject.SetActive (true);
 		gameOver.gameObject.SetActive (false);
+		restartButton.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -44,7 +46,8 @@ public class game_logic : MonoBehaviour {
 			life3.gameObject.SetActive (false);
 			player.gameObject.SetActive (false);
 			gameOver.gameObject.SetActive (true);
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
+			restartButton.gameObject.SetActive (true);
 			break;
 		}
 	}
