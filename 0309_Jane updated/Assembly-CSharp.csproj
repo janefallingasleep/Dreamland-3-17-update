@@ -113,6 +113,7 @@
      <Compile Include="Assets\Pixelplacement\Surge\Utilities\EditorUtilities.cs" />
      <Compile Include="Assets\Pixelplacement\Surge\Utilities\Initialization.cs" />
      <Compile Include="Assets\Pixelplacement\Surge\Utilities\Math.cs" />
+     <Compile Include="Assets\script\break_rock.cs" />
      <Compile Include="Assets\script\buttonPush.cs" />
      <Compile Include="Assets\script\camera_switch.cs" />
      <Compile Include="Assets\script\elevator.cs" />

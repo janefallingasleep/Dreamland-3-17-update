@@ -3,6 +3,7 @@ using System.Collections;
 
 public class snowman_script : MonoBehaviour {
 	public AudioClip sink;
+	public GameObject rock_breakages;
 	private Vector3 currPos;
 	private Vector3 currRot;
 	private Vector3 targetPos = new Vector3(29.75395f, -0.4431741f, -16.65116f);
@@ -35,8 +36,6 @@ public class snowman_script : MonoBehaviour {
 				Mathf.LerpAngle (currRot.y, targetRot.y, time * 0.1f),
 				Mathf.LerpAngle (currRot.z, targetRot.z, time * 0.1f));
 		}
-		//transform.position = currPos;
-		//transform.localEulerAngles = currRot;
 		transform.SetPositionAndRotation(currPos, Quaternion.Euler(currRot));
 	}
 
@@ -44,6 +43,7 @@ public class snowman_script : MonoBehaviour {
 		if (other.gameObject.tag == "killer_rock") {
 			Debug.Log ("Snowman killed");
 			other.gameObject.SetActive (false);
+			rock_breakages.GetComponent<break_rock> ().BreakRock ();
 			should_sink = true;
 		}
 	}
