@@ -19,10 +19,8 @@ public class break_rock : MonoBehaviour {
 		Transform[] rock_children = GetComponentsInChildren<Transform> ();
 		Debug.Log ("found "+ rock_children.Length + " children");
 		foreach (Transform rock in rock_children) {
-			Debug.Log ("setting "+ rock.gameObject.name);
 			rock.gameObject.GetComponent<BoxCollider>().enabled = is_enabled;
 			rock.gameObject.GetComponent<MeshRenderer>().enabled = is_enabled;
-
 		}
 	}
 }

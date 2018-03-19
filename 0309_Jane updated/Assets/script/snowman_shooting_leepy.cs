@@ -8,6 +8,8 @@ public class snowman_shooting_leepy : MonoBehaviour {
 	public float speed;
 	private Transform player; 
 	private Vector3 target;
+	public xiaodouDeath die_script;
+	public Transform respawnPoint;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("leepy_head").transform;
@@ -26,6 +28,8 @@ public class snowman_shooting_leepy : MonoBehaviour {
 		if (other.gameObject.tag == "leepy") {
 			DestroyProjectile();
 			//// To do: when the ball hit leept, add health bar 
+			Debug.Log ("snowball hit Leepy");
+			StartCoroutine(die_script.TakeDamageAndRespawn(respawnPoint));
 		}
 	}
 

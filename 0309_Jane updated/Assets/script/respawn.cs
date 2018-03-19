@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class respawn: MonoBehaviour 
-
-{
+public class respawn: MonoBehaviour {
 	Animator anim;
 	private int is_colliding = 0;
 	int time;
 	int lastDied;
 	public xiaodouDeath die_script;
+	public Transform respawnPoint;
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -20,7 +19,7 @@ public class respawn: MonoBehaviour
 			}
 			is_colliding = 1;
 			Debug.Log ("hitting");
-			StartCoroutine(die_script.TakeDamageAndRespawn());
+			StartCoroutine(die_script.TakeDamageAndRespawn(respawnPoint));
 		}
 	}
 

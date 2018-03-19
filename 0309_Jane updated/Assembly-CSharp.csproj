@@ -136,6 +136,7 @@
      <Compile Include="Assets\script\snowman_shooting_leepy.cs" />
      <Compile Include="Assets\script\snowman_shooting_shadow.cs" />
      <Compile Include="Assets\script\snowman_static_attack.cs" />
+     <Compile Include="Assets\script\startAttack.cs" />
      <Compile Include="Assets\script\xiaodouDeath.cs" />
      <Compile Include="Assets\Scripts\FollowPath.cs" />
      <Compile Include="Assets\Scripts\MovementPath.cs" />

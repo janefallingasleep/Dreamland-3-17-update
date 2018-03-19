@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class xiaodouDeath : MonoBehaviour {
 	public GameObject shadow_empty;
-	public Transform respawnPoint;
 
-	public IEnumerator TakeDamageAndRespawn () {
+	public IEnumerator TakeDamageAndRespawn (Transform respawnPoint) {
 		Debug.Log ("taking damage and respawning");
 		game_logic.life_count -= 1;
 		gameObject.GetComponent<Animator> ().SetTrigger ("death");
