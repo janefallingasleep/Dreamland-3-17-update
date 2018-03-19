@@ -3,10 +3,10 @@ using System.Collections;
 
 public class snowman_script : MonoBehaviour {
 	public AudioClip sink;
-	Vector3 startPos = new Vector3 (29.14f, 1.64f, -16.6f);
-	Vector3 startRot = new Vector3(1.389f, 90.04601f, 1.524f);
-	Vector3 targetPos = new Vector3(29.75395f, -0.4431741f, -16.65116f);
-	Vector3 targetRot = new Vector3(19.79f, 90.55701f, 1.619f);
+	private Vector3 currPos;
+	private Vector3 currRot;
+	private Vector3 targetPos = new Vector3(29.75395f, -0.4431741f, -16.65116f);
+	private Vector3 targetRot = new Vector3(17.757f, 29.842f, 1.548f);
 	float time = 0;
 	bool should_sink;
 
@@ -14,6 +14,8 @@ public class snowman_script : MonoBehaviour {
 		GetComponent<AudioSource>().playOnAwake = false;
 		GetComponent<AudioSource> ().clip = sink;
 		should_sink = false;
+		currPos = transform.position;
+		currRot = transform.eulerAngles;
 	}
 
 	void Update() {
@@ -27,9 +29,15 @@ public class snowman_script : MonoBehaviour {
 			Debug.Log ("Snowman sinking");
 			GetComponent<AudioSource>().PlayOneShot (sink, 0.05f);
 			time += Time.deltaTime / 0.5f; //sink for 5 seconds
-			gameObject.transform.rotation = Quaternion.Slerp (Quaternion.Euler(startRot.x, startRot.y, startRot.z), Quaternion.Euler(targetRot.x, targetRot.y, targetRot.z ), time);
-			gameObject.transform.position = Vector3.Lerp (startPos, targetPos, time);
+			currPos = Vector3.Lerp (currPos, targetPos, time);
+			currRot = new Vector3 (
+				Mathf.LerpAngle (currRot.x, targetRot.x, time * 0.1f),
+				Mathf.LerpAngle (currRot.y, targetRot.y, time * 0.1f),
+				Mathf.LerpAngle (currRot.z, targetRot.z, time * 0.1f));
 		}
+		//transform.position = currPos;
+		//transform.localEulerAngles = currRot;
+		transform.SetPositionAndRotation(currPos, Quaternion.Euler(currRot));
 	}
 
 	void OnCollisionEnter(Collision other){
