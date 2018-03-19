@@ -11,6 +11,7 @@ TagManager:
   - river_brake
   - leepy_head
   - shadow
+  - killer_rock_breakage
   layers:
   - Default
   - TransparentFX
