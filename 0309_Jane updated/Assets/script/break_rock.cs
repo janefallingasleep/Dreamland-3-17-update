@@ -21,6 +21,7 @@ public class break_rock : MonoBehaviour {
 		foreach (Transform rock in rock_children) {
 			rock.gameObject.GetComponent<BoxCollider>().enabled = is_enabled;
 			rock.gameObject.GetComponent<MeshRenderer>().enabled = is_enabled;
+			//rock.gameObject.GetComponent<Rigidbody> ().useGravity = is_enabled;
 		}
 	}
 }

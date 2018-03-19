@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class elevator : MonoBehaviour {
-	int count;
+	private int count;
 
 	// Use this for initialization
 	void Start () {
@@ -12,17 +12,13 @@ public class elevator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (count >= 1 && count < 120) {
+		if (count >= 1 && count < 130) {
 			//print (count);
-			transform.Translate(0, Time.deltaTime*2, 0);
-			count = count + 1;
-		}
-	}
-
-	void OnCollisionEnter(Collision col){
-		//print (col.collider.name);
-		if (col.collider.name == "Leepy(2)") {
-			count += 1;
+			transform.Translate (0, Time.deltaTime * 2, 0);
+			count = (count + 1) % 260;
+		} else {
+			transform.Translate (0, -Time.deltaTime * 2, 0);
+			count = (count + 1) % 260;
 		}
 	}
 }

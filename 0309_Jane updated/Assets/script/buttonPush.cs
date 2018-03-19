@@ -5,16 +5,16 @@ using UnityEngine;
 public class buttonPush : MonoBehaviour {
 	public GameObject cave;
 	public AudioClip caveRot;
-	AudioSource audio;
+	AudioSource button_audio;
 	int rotCount;
-	Animator anim;
+	//Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		audio = GetComponent<AudioSource>();
+		button_audio = GetComponent<AudioSource>();
 		rotCount = 0;
-		anim = GetComponent<Animator>();
-		anim.SetBool ("stop", false);
+		//anim = GetComponent<Animator>();
+		//anim.SetBool ("stop", false);
 	}
 	
 	// Update is called once per frame
@@ -23,15 +23,15 @@ public class buttonPush : MonoBehaviour {
 			cave.transform.Rotate (0, Time.deltaTime * 25, 0);
 			rotCount = rotCount + 1;
 		} else {
-			audio.Pause();
+			button_audio.Pause();
 		}
 	}
 
 	void OnCollisionEnter(Collision col){
-		if (col.collider.name == "shadow_rigged" ){//|| col.collider.name == "shadowEmpty") {
-			anim.SetBool("stop", true);
+		if (col.collider.name == "shadowEmpty" ){//|| col.collider.name == "shadowEmpty") {
+			//anim.SetBool("stop", true);
 			rotCount += 1;
-			audio.PlayOneShot (caveRot, 1f);
+			button_audio.PlayOneShot (caveRot, 1f);
 		}
 	}
 }
