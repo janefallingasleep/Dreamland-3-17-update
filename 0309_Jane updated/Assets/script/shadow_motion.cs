@@ -34,7 +34,7 @@ public class shadow_motion : MonoBehaviour {
 	void Update () {
 		if (count >= 1 && count < 100) {
 			//print (count);
-			verticalVelocity
+			//verticalVelocity
 			count += 1;
 		}
 
