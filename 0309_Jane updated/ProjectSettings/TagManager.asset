@@ -12,6 +12,7 @@ TagManager:
   - leepy_head
   - shadow
   - killer_rock_breakage
+  - cabin
   layers:
   - Default
   - TransparentFX
